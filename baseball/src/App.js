@@ -14,9 +14,13 @@ class App extends Component {
     e.preventDefault();
     let strike = this.state.strikes;
 
-    strike++;
+    if(strike === 3) {
+      this.setState({ strikes: 0, balls: 0 });
+    } else {
+      strike++;
 
-    this.setState({ strikes: strike });
+      this.setState({ strikes: strike });
+    }
   }
 
   recordBall = e => {
@@ -24,9 +28,13 @@ class App extends Component {
 
     let ball = this.state.balls;
 
-    ball++;
+    if(ball === 4) {
+      this.setState({ balls: 0, strikes: 0 });
+    } else {
+      ball++;
 
-    this.setState({ balls: ball });
+      this.setState({ balls: ball });
+    }
   }
 
   recordFoul = e => {
