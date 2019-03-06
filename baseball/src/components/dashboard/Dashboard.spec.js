@@ -5,26 +5,25 @@ import 'jest-dom/extend-expect';
 import Dashboard from './Dashboard';
 
 describe('<Dashboard />', () => {
-    it('Strike button should fire upon being clicked on', () => {
-        const onClick = jest.fn();
-        const { getByText } = render(<Dashboard recordStrike={onClick}/>);
-        
-        const strikeButton = getByText(/Strike/i);
-        fireEvent.click(strikeButton);
-
-        expect(onClick).toHaveBeenCalled();
-    });
-
-    // it('Ball button should fire upon being clicked on', async () => {
+    // it('Strike button should fire upon being clicked on', () => {
     //     const onClick = jest.fn();
-    //     const { getByTestId } = render(<Dashboard recordBall={onClick}/>);
+    //     const { getByText } = render(<Dashboard recordStrike={onClick}/>);
         
-    //     const ballButton = getByTestId('Ball');
-        
-    //     fireEvent.click(ballButton);
-        
+    //     const strikeButton = getByText(/Strike/i);
+    //     fireEvent.click(strikeButton);
+
     //     expect(onClick).toHaveBeenCalled();
     // });
+
+    it('Ball button should fire upon being clicked on', () => {
+        const onClick = jest.fn();
+        const { getByTestId } = render(<Dashboard recordBall={onClick}/>);
+        
+        const ballButton = getByTestId('Ball');
+        fireEvent.click(ballButton);
+        
+        expect(onClick).toHaveBeenCalled();
+    });
 
     // it('Foul button should fire upon being clicked on', () => {
     //     const onClick = jest.fn();
